@@ -1,19 +1,6 @@
-#include "math/vec3.hpp"
-#include "math/quaternion.hpp"
+#include "physics/physics_engine.hpp"
 
-class rocket_transform{
-    //poisitonal
-    Vec3 coordinates;
-    Quaternion attitude;
-    //kinematic
-    Vec3 velocity;
-    Vec3 angular_velocity;//is this vec 3???
-};
 
-class rocket
-{
-    rocket_transform transform;
-};
 
 void print_rocket_statisics(rocket display_rocket){
     
