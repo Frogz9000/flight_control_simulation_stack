@@ -8,13 +8,14 @@ private:
     double y_; 
     double z_;
 public:
-    Vec3(double x, double y, double z);
+    //constructor
+    Vec3(double x, double y, double z): x_ (x), y_ (y), z_ (z) {}
     //readonly public access
-    double Vec3::x() const {return x_;}
-    double Vec3::y() const {return y_;}
-    double Vec3::z() const {return z_;}
+    double x() const {return x_;}
+    double y() const {return y_;}
+    double z() const {return z_;}
+    
 };
-
 
 
 #endif
