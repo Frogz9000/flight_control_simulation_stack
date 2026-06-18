@@ -1,18 +1,20 @@
-FROM mcr.microsoft.com/devcontainers/cpp:2-ubuntu24.04
+# Download base image ubuntu 20.04
+FROM ubuntu:20.04
 
-ARG REINSTALL_CMAKE_VERSION_FROM_SOURCE="none"
+# Disable Prompt During Packages Installation
+ARG DEBIAN_FRONTEND=noninteractive
 
-# Optionally install the cmake for vcpkg
-COPY ./reinstall-cmake.sh /tmp/
+# Update Ubuntu Software repository
+RUN apt-get update && apt-get install -y \
+    make \
+    cmake \
+    g++ \
+    libncurses5-dev \
+    libncursesw5-dev \
+    git \
+    clang-tools-8 \
+&& rm -rf /var/lib/apt/lists/*
 
-RUN if [ "${REINSTALL_CMAKE_VERSION_FROM_SOURCE}" != "none" ]; then \
-        chmod +x /tmp/reinstall-cmake.sh && /tmp/reinstall-cmake.sh ${REINSTALL_CMAKE_VERSION_FROM_SOURCE}; \
-    fi \
-    && rm -f /tmp/reinstall-cmake.sh
+# RUN update-alternatives --install /usr/bin/clangd clangd /usr/bin/clang-8 100
 
-# [Optional] Uncomment this section to install additional vcpkg ports.
-# RUN su vscode -c "${VCPKG_ROOT}/vcpkg install <your-port-name-here>"
-
-# [Optional] Uncomment this section to install additional packages.
-# RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-#     && apt-get -y install --no-install-recommends <your-package-list-here>
+CMD ["bash"]
