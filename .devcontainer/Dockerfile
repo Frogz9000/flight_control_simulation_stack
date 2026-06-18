@@ -8,13 +8,13 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y \
     make \
     cmake \
-    g++ \
     libncurses5-dev \
     libncursesw5-dev \
     git \
-    clang-tools-8 \
+    clang \
+    clangd-12 \
 && rm -rf /var/lib/apt/lists/*
 
-# RUN update-alternatives --install /usr/bin/clangd clangd /usr/bin/clang-8 100
-
+#make clangd install default
+RUN update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-12 100
 CMD ["bash"]
