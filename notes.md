@@ -37,3 +37,4 @@ https://stackoverflow.com/questions/5424042/class-variables-public-access-read-o
 
 https://www.geeksforgeeks.org/cpp/when-do-we-use-initializer-list-in-c/
 
+https://en.wikipedia.org/wiki/Pressure_altimeter
