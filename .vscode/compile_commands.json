@@ -1,0 +1,22 @@
+[
+{
+  "directory": "/workspaces/flight_control_simulation_stack/rocket_simulator/build",
+  "command": "/usr/bin/c++   -I/workspaces/flight_control_simulation_stack/rocket_simulator/includes    -std=gnu++2a -o CMakeFiles/ROCKET_SIM.dir/src/main.cpp.o -c /workspaces/flight_control_simulation_stack/rocket_simulator/src/main.cpp",
+  "file": "/workspaces/flight_control_simulation_stack/rocket_simulator/src/main.cpp"
+},
+{
+  "directory": "/workspaces/flight_control_simulation_stack/rocket_simulator/build",
+  "command": "/usr/bin/c++   -I/workspaces/flight_control_simulation_stack/rocket_simulator/includes    -std=gnu++2a -o CMakeFiles/ROCKET_SIM.dir/src/math/quaternion.cpp.o -c /workspaces/flight_control_simulation_stack/rocket_simulator/src/math/quaternion.cpp",
+  "file": "/workspaces/flight_control_simulation_stack/rocket_simulator/src/math/quaternion.cpp"
+},
+{
+  "directory": "/workspaces/flight_control_simulation_stack/rocket_simulator/build",
+  "command": "/usr/bin/c++   -I/workspaces/flight_control_simulation_stack/rocket_simulator/includes    -std=gnu++2a -o CMakeFiles/ROCKET_SIM.dir/src/math/vec3.cpp.o -c /workspaces/flight_control_simulation_stack/rocket_simulator/src/math/vec3.cpp",
+  "file": "/workspaces/flight_control_simulation_stack/rocket_simulator/src/math/vec3.cpp"
+},
+{
+  "directory": "/workspaces/flight_control_simulation_stack/rocket_simulator/build",
+  "command": "/usr/bin/c++   -I/workspaces/flight_control_simulation_stack/rocket_simulator/includes    -std=gnu++2a -o CMakeFiles/ROCKET_SIM.dir/src/physics/physics_engine.cpp.o -c /workspaces/flight_control_simulation_stack/rocket_simulator/src/physics/physics_engine.cpp",
+  "file": "/workspaces/flight_control_simulation_stack/rocket_simulator/src/physics/physics_engine.cpp"
+}
+]
