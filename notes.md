@@ -2,6 +2,7 @@
 Effective Modern C++ ~~ need to get pdf 
 [C++ Core Guidelines](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines "https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines") 
 [C++ Reference](https://en.cppreference.com/ "https://en.cppreference.com/") 
+[Beej's Guide to Network Programming](https://beej.us/guide/bgnet/)
 
 # rocket simulators references:
 [Open Rocket](https://openrocket.info/ "https://openrocket.info/")
@@ -35,3 +36,4 @@ https://www.learncpp.com/cpp-tutorial/classes-and-header-files/
 https://stackoverflow.com/questions/5424042/class-variables-public-access-read-only-but-private-access-read-write
 
 https://www.geeksforgeeks.org/cpp/when-do-we-use-initializer-list-in-c/
+
