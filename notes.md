@@ -23,7 +23,7 @@ Effective Modern C++ ~~ need to get pdf
 	- Euler angles
 		- most intuitive to visualize but suffers from Gimbal lock
 		- can be difficult to manipulate mathematically
-- 
+
 [Pose](https://en.wikipedia.org/wiki/Pose_(computer_vision))
 - pose and transform are largely synonymous
 - pose is the representation of position and orientation of an object
