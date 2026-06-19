@@ -42,3 +42,33 @@ https://en.wikipedia.org/wiki/Pressure_altimeter
 https://eater.net/quaternions
 
 https://www.cs.cmu.edu/~baraff/sigcourse/notesd1.pdf
+
+https://altusmetrum.org/TeleMega/ <- look into making a simulated version of this
+
+
+
+
+
+
+
+
+# TODO/ROADMAP
+- organize this into directory of md folders to organize and collect info
+Roadmap:
+Stage 1:
+- Read and annotate Effective Modern C++
+- refresher on linear algebra (watch and take note on some 3b1b vids)
+- complete all of https://www.learncpp.com/
+- fully understand https://eater.net/quaternions
+	- look into textbook/in-depth understanding on quaternions and why not euler or matricies
+- Read and annotate How Linux Works
+Stage 2:
+- begin more indepth development of rocket sim
+- Read and annotate Numerical Methods for Engineers
+- Read and annotate Introduction to Flight
+
+Stage 3:
+- begin development of raspi control system
+- Read and annotate Fundamentals of Aerospace Navigation and Guidance
+- Read and annotate Feedback Control of Dynamic Systems
+- Read and annotate Kalman and Bayesian Filters in Python
