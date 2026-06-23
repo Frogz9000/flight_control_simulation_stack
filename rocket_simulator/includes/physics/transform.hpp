@@ -1,19 +1,17 @@
-#ifndef ROCKET_TRANSFORM_H
-#define ROCKET_TRANSFORM_H
-
+#ifndef TRANSFORM_H
+#define TRANSFORM_H
 #include "math/vec3.hpp"
 #include "math/quaternion.hpp"
-#include <string>
 
-class rocket_transform{
+class transform{
 public:
     Vec3 position;
     Vec3 velocity;
     Quaternion attitude;
-    Vec3 angular_velocity;//is this vec 3???
+    Vec3 angular_velocity;
 
-    //default rocket constructor
-    rocket_transform(Vec3 position, Vec3 velocity,  Quaternion attitude, Vec3 angular_velocity): 
+    //default constructor
+    transform(Vec3 position, Vec3 velocity,  Quaternion attitude, Vec3 angular_velocity): 
     position (position), attitude (attitude), velocity (velocity), angular_velocity (angular_velocity){}
     //getters
     //return x coordinate
@@ -31,8 +29,6 @@ public:
     double vz() const {return velocity.z;}
     
     //need to learn to more about quaternions and av to do more
-
-    std::string print_position(void);
 };
 
 #endif

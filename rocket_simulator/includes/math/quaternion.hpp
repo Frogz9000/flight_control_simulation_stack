@@ -3,11 +3,11 @@
 
 class Quaternion{
 public:
-    double a; 
-    double b; 
-    double c; 
-    double d;
-    Quaternion(double a, double b, double c, double d): a (a), b (b), c (c), d (d) {}
+    double w; 
+    double i; 
+    double j; 
+    double k;
+    Quaternion(double w, double i, double j, double k): w (w), i (i), j (j), k (k) {}
 };
 
 #endif
