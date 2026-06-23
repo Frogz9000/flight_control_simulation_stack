@@ -7,14 +7,12 @@ class physics_object
 {
     private:
         transform _transform;
-
+        double    _mass_kg;
     public:
-        physics_object(transform transform): _transform(transform){};
+        physics_object(transform transform, double mass_kg): _transform(transform), _mass_kg (mass_kg){};
         void translate(double new_x, double new_y, double new_z);
-        //should have a rotate func as well probably
-
-        //apply change in time to position and velocity
-        void update_time(double dt);
+        double mass() const {return _mass_kg;}
+        void apply_linear_acceleration(double dt);
 };
 
 
