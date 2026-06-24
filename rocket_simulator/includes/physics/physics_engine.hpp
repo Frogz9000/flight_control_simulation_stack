@@ -1,15 +1,27 @@
 #ifndef PHYSICS_ENGINE_H
 #define PHYSICS_ENGINE_H
+
+#include <string>
 #include <vector>
-#include <ctime>
-#include <memory>
 #include "physics/physics_object.hpp"
 using namespace std;
-void apply_forces_and_update(double dt, unique_ptr<physics_object> &object);
+class physics_engine{
+    private:
+        int update_frequency_hz;
+        vector<physics_object> entity_list;
+        double _total_time_s = 0.0;
+        char log_buffer[256];
+    public:
+        physics_engine(int update_frequency_hz) : update_frequency_hz (update_frequency_hz){}
+        void apply_forces_and_update(double dt, physics_object &object);
+        
+        double total_time_s() const {return _total_time_s;}
 
-double get_time_step_ms();
+        void apply_gravitational_force(physics_object &object);
 
-void apply_gravitational_force(double dt, unique_ptr<physics_object> &object);
+        void apply_velocity_to_position(double dt, physics_object &object);
 
-void apply_velocity_to_position(double dt, unique_ptr<physics_object> &object);
+        double step_time();
+        std::string get_total_time();
+};
 #endif

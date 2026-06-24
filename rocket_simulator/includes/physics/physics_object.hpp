@@ -1,19 +1,25 @@
 #ifndef PHYSICS_OBJECT_H
 #define PHYSICS_OBJECT_H
 
-#include "physics/transform.hpp"
+#include "physics/physics_transform.hpp"
+#include <string>
 
 class physics_object
 {
     private:
-        transform _transform;
+        physics_transform _physics_transform;
         double    _mass_kg;
+        char log_buffer[256];
     public:
-        physics_object(transform transform, double mass_kg): _transform(transform), _mass_kg (mass_kg){};
-        void translate(double new_x, double new_y, double new_z);
+        physics_object(physics_transform physics_transform, double mass_kg): _physics_transform(physics_transform), _mass_kg (mass_kg){};
+        void set_position(double x, double y, double z);
+        void set_velocity(double x, double y, double z);
+        void translate(double delta_x, double delta_y, double delta_z);
+        void accelerate(double delta_x, double delta_y, double delta_z);
         double mass() const {return _mass_kg;}
-        void apply_linear_acceleration(double dt);
-};
+        void apply_linear_velocity(double dt);
+        std::string report_location(void);
+    };
 
 
 #endif

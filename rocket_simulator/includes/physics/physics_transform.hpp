@@ -1,9 +1,9 @@
-#ifndef TRANSFORM_H
-#define TRANSFORM_H
+#ifndef physics_transform_H
+#define physics_transform_H
 #include "math/vec3.hpp"
 #include "math/quaternion.hpp"
 
-class transform{
+class physics_transform{
 public:
     Vec3 position;
     Vec3 velocity;
@@ -11,7 +11,7 @@ public:
     Vec3 angular_velocity;
 
     //default constructor
-    transform(Vec3 position, Vec3 velocity,  Quaternion attitude, Vec3 angular_velocity): 
+    physics_transform(Vec3 position, Vec3 velocity,  Quaternion attitude, Vec3 angular_velocity): 
     position (position), attitude (attitude), velocity (velocity), angular_velocity (angular_velocity){}
     //getters
     //return x coordinate
