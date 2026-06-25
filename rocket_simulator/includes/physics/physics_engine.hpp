@@ -8,7 +8,6 @@ using namespace std;
 class physics_engine{
     private:
         int update_frequency_hz;
-        vector<physics_object> entity_list;
         double _total_time_s = 0.0;
         char log_buffer[256];
     public:

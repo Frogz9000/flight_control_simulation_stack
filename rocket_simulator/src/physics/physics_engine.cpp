@@ -9,7 +9,7 @@ void physics_engine::apply_gravitational_force(physics_object &object){
     object.set_velocity(0.0, -9.8, 0.0);
 }
 
-void physics_engine::apply_velocity_to_position(double dt,physics_object &object){
+void physics_engine::apply_velocity_to_position(double dt, physics_object &object){
     object.apply_linear_velocity(dt);
 }
 //add other forces here
