@@ -12,6 +12,6 @@ public:
     Vec3& operator+=(const Vec3& other);
 
 };
-
+Vec3 operator+(const Vec3& lhs, const Vec3& rhs);
 
 #endif
