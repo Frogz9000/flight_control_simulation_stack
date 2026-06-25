@@ -16,7 +16,9 @@ class physics_engine{
         
         double total_time_s() const {return _total_time_s;}
 
-        void apply_gravitational_force(physics_object &object);
+        Vec3 get_gravitational_acceleration(physics_object &object);
+
+        void apply_acceleration_to_velocity(Vec3 acceleration,  physics_object &object);
 
         void apply_velocity_to_position(double dt, physics_object &object);
 
