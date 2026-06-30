@@ -1,19 +1,22 @@
-#ifndef STATE_H
-#define STATE_H
+#ifndef RIGID_BODY_H
+#define RIGID_BODY_H
 
 #include "pose.hpp"
 #include "linear_velocity.hpp"
 #include "angular_velocity.hpp"
 #include <string>
 
-class State
+class RigidBody
 {
     private:
         Pose pose_;
         LinearVelocity linear_velocity_;
         AngularVelocity angular_velocity_;
+        //mass
+        //inertia tensor == moment of interia
+
     public:
-        State(Pose pose = {}, LinearVelocity linear_velocity = {}, AngularVelocity angular_velocity = {}): 
+        RigidBody(Pose pose = {}, LinearVelocity linear_velocity = {}, AngularVelocity angular_velocity = {}): 
         pose_(pose), linear_velocity_ (linear_velocity), angular_velocity_ (angular_velocity) {};
         
         void set_pose(Pose pose) { pose_ = pose; };
