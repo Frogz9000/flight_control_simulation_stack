@@ -3,26 +3,27 @@
 
 #include <string>
 #include <vector>
-#include "physics/physics_object.hpp"
+#include "physics/rigid_body.hpp"
 using namespace std;
 class physics_engine{
     private:
-        int update_frequency_hz;
+        int update_frequency_hz = 0;
+        double time_step = 1.0/update_frequency_hz;
         double _total_time_s = 0.0;
         char log_buffer[256];
     public:
         physics_engine(int update_frequency_hz) : update_frequency_hz (update_frequency_hz){}
-        void apply_forces_and_update(double dt, physics_object &object);
         
         double total_time_s() const {return _total_time_s;}
 
-        Vec3 get_gravitational_acceleration(physics_object &object);
+        Vec3 get_gravitational_acceleration(RigidBody &object);
 
-        void apply_acceleration_to_velocity(Vec3 acceleration,  physics_object &object);
+        void apply_acceleration_to_velocity_linear(Vec3 acceleration,  RigidBody &object);
 
-        void apply_velocity_to_position(double dt, physics_object &object);
+        void apply_velocity_to_position(RigidBody &object);
 
-        double step_time();
-        std::string get_total_time();
+        void step_time();
+
+        std::string print_total_time();
 };
 #endif

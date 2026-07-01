@@ -2,7 +2,7 @@
 #include <iostream>
 #include <ostream>
 #include "physics/physics_engine.hpp"
-#include "physics/physics_transform.hpp"
+#include "physics/rigid_body.hpp"
 #include <getopt.h>
 
 #define no_argument 0
@@ -52,20 +52,14 @@ int main(int argc, char *argv[]){
         }
     }
 
-
-    physics_object rocket = physics_object(physics_transform(Vec3(0,0,0),Vec3(0,0,0),Quaternion(0,0,0,0),Vec3(0,0,0)), 1000);
-    rocket.set_position(Vec3(10, 0, 0));
     physics_engine engine = physics_engine(simulation_hz);//1ms ticks
-
+    RigidBody test_object = RigidBody();
     for (int i = 0; i<=(simulation_hz * simulation_duration_seconds); i++){
-        cout << engine.get_total_time()<< ": " << rocket.report_location() << " " << rocket.report_velocity() << endl;
-        double time_step = engine.step_time();
-        Vec3 total_force = engine.get_gravitational_acceleration(rocket) + Vec3(1,10,0);//this is in m/s
-        total_force.x /= simulation_hz;//m/s -> m/ms
-        total_force.y /= simulation_hz;//m/s -> m/ms
-        total_force.z /= simulation_hz;//m/s -> m/ms
+        cout << engine.print_total_time()<< ": " << test_object.report_location() << " " << test_object.report_velocity() << endl;
+        engine.step_time();
+        Vec3 total_force = engine.get_gravitational_acceleration(test_object);// + Vec3(1,10,0);//this is in m/s
         
-        engine.apply_acceleration_to_velocity(total_force, rocket);
-        engine.apply_velocity_to_position(time_step, rocket);
+        engine.apply_acceleration_to_velocity_linear(total_force, test_object);
+        engine.apply_velocity_to_position(test_object);
     }
 }
