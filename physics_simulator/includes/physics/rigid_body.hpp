@@ -25,22 +25,16 @@ class RigidBody
         void set_attitude(Quaternion attitude){ attitude_ = attitude; }
         void set_linear_velocity(Vec3 velocity) { linear_velocity_ = velocity; };
         void set_angular_velocity(Vec3 velocity) { angular_velocity_ = velocity; };
-
+        //immutable accessors
         const Vec3& position() const {return position_;}
         const Quaternion& attitude() const {return attitude_;}
         const Vec3& linear_velocity() const { return linear_velocity_; }
         const Vec3& angular_velocity() const { return angular_velocity_; }
 
-        void update_velocity(Vec3 acceleration, double dt){
-            linear_velocity_.x += acceleration.x * dt;
-            linear_velocity_.y += acceleration.y * dt;
-            linear_velocity_.z += acceleration.z * dt;
-        }
-        
-        void update_position(double dt){
-            position_.x += linear_velocity_.x * dt;
-            position_.y += linear_velocity_.y * dt;
-            position_.z += linear_velocity_.z * dt;
-        }
+        //mutable accessors
+        Vec3& position() {return position_;}
+        Quaternion& attitude() {return attitude_;}
+        Vec3& linear_velocity() { return linear_velocity_; }
+        Vec3& angular_velocity() { return angular_velocity_; }
     };
 #endif

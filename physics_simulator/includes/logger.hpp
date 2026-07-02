@@ -22,6 +22,4 @@ public:
     //eventually have this move to indidual logs for each object and the above function will instead
     //be a log phsics step that calls each sub function
 };
-
-
 #endif

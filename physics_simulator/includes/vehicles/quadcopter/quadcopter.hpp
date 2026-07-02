@@ -28,6 +28,17 @@ public:
     void set_rotor_direction(size_t rotor_id, enum SpinDirection direction){
         rotors_[rotor_id].set_spin_direction(direction);
     }
+
+    //just get force, later get Torque and collect in Wrench type
+    Vec3 get_rotor_force_in_global_frame(){
+        Vec3 total_force = {0,0,0};
+        for (auto rotor : rotors_){
+            total_force += rotor.get_force();
+        }
+        //todo use transform attitude to rotate force to global frame
+        
+        return total_force;
+    }
 };
 
 #endif
