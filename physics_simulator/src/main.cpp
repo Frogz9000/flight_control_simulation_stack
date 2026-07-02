@@ -58,7 +58,7 @@ int main(int argc, char *argv[]){
         cout << engine.print_total_time()<< ": " << test_object.report_location() << " " << test_object.report_velocity() << endl;
         engine.step_time();
         Vec3 total_force = engine.get_gravitational_acceleration(test_object);//this is in m/s
-        
+        total_force += {10,10.8,10};//arbitrary thrust vector (cancel out gravity by 1 m/s^2)
         engine.apply_acceleration_to_velocity_linear(total_force, test_object);
         engine.apply_velocity_to_position(test_object);
     }
