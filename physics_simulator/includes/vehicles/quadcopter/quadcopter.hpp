@@ -17,6 +17,7 @@ public:
     Vec3 get_position(){ return rigid_body_.position(); }
     Quaternion get_attitude(){ return rigid_body_.attitude(); }
     
+    
 };
 
 #endif
