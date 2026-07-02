@@ -48,7 +48,7 @@ int main(int argc, char *argv[]){
             std::cout << "(s)im_(speed)_hz simulation tick speed in hz" << std::endl;
             std::cout << "((t)ime)_to_run number of seconds to simulate" << std::endl;
             std::cout << "exmaple: './ROCKET_SIM -speed 1000 -time 60' runs simulation at 1000hz for 60s" << std::endl;
-            break;
+            return 0;
         }
     }
 
@@ -57,7 +57,7 @@ int main(int argc, char *argv[]){
     for (int i = 0; i<=(simulation_hz * simulation_duration_seconds); i++){
         cout << engine.print_total_time()<< ": " << test_object.report_location() << " " << test_object.report_velocity() << endl;
         engine.step_time();
-        Vec3 total_force = engine.get_gravitational_acceleration(test_object);// + Vec3(1,10,0);//this is in m/s
+        Vec3 total_force = engine.get_gravitational_acceleration(test_object);//this is in m/s
         
         engine.apply_acceleration_to_velocity_linear(total_force, test_object);
         engine.apply_velocity_to_position(test_object);

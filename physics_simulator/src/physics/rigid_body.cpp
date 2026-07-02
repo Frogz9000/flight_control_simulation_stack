@@ -27,6 +27,4 @@ void RigidBody::update_position(double dt){
     position_.x += linear_velocity_.x * dt;
     position_.y += linear_velocity_.y * dt;
     position_.z += linear_velocity_.z * dt;
-
-
 }
