@@ -31,12 +31,16 @@ class RigidBody
         const Vec3& linear_velocity() const { return linear_velocity_; }
         const Vec3& angular_velocity() const { return angular_velocity_; }
 
-        std::string report_location();
-        std::string report_velocity();
-
-
-        void update_velocity(Vec3 acceleration, double dt);
-        void update_position(double dt);
-
+        void update_velocity(Vec3 acceleration, double dt){
+            linear_velocity_.x += acceleration.x * dt;
+            linear_velocity_.y += acceleration.y * dt;
+            linear_velocity_.z += acceleration.z * dt;
+        }
+        
+        void update_position(double dt){
+            position_.x += linear_velocity_.x * dt;
+            position_.y += linear_velocity_.y * dt;
+            position_.z += linear_velocity_.z * dt;
+        }
     };
 #endif

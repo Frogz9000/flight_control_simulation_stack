@@ -1,9 +1,11 @@
 #include <cstdlib>
 #include <iostream>
 #include <ostream>
+#include <getopt.h>
+
 #include "physics/physics_engine.hpp"
 #include "physics/rigid_body.hpp"
-#include <getopt.h>
+#include "logger.hpp"
 
 #define no_argument 0
 #define required_argument 1 
@@ -52,10 +54,11 @@ int main(int argc, char *argv[]){
         }
     }
 
-    physics_engine engine = physics_engine(simulation_hz);//1ms ticks
+    PhysicsEngine engine = PhysicsEngine(simulation_hz);//1ms ticks
     RigidBody test_object = RigidBody();
+    Logger log = Logger();
     for (int i = 0; i<=(simulation_hz * simulation_duration_seconds); i++){
-        cout << engine.print_total_time()<< ": " << test_object.report_location() << " " << test_object.report_velocity() << endl;
+        log.print_time_position_velocity(engine.total_time_s(),test_object.position(), test_object.linear_velocity());
         engine.step_time();
         Vec3 total_force = engine.get_gravitational_acceleration(test_object);//this is in m/s
         total_force += {10,10.8,10};//arbitrary thrust vector (cancel out gravity by 1 m/s^2)

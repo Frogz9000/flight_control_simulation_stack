@@ -7,21 +7,21 @@
 
 class Rotor{
 private:
-    Vec3 positional_offset_;    
-    double rotational_freq_;
+    Vec3 offset_;    
+    double RPM_;
     enum SpinDirection spin_direction_;
 
 public:
-    Rotor(Vec3 offset = {0,0,0}, double rotational_freq = 0.0, enum SpinDirection direction = CW): 
-    positional_offset_(offset), rotational_freq_(rotational_freq), spin_direction_(direction){}
-    
-    const Vec3& positional_offset() const {return positional_offset_;}
-    const double& rotational_freq() const {return rotational_freq_;}
+    Rotor(Vec3 offset = {0,0,0}, double RPM = 0.0, enum SpinDirection direction = CW): 
+    offset_(offset), RPM_(RPM), spin_direction_(direction){}
+
+    const Vec3& offset() const {return offset_;}
+    const double& RPM() const {return RPM_;}
     const SpinDirection& spin_direction() const {return spin_direction_;}
 
-    void set_positional_offset(Vec3 positional_offset){ positional_offset_ = positional_offset; }
-    void set_rotational_freq(double rotational_freq){ rotational_freq_ = rotational_freq; }
-    void set_rotational_direction(enum SpinDirection direction){ spin_direction_ = direction;};
+    void set_positional_offset(Vec3 offset){ offset_ = offset; }
+    void set_RPM(double RPM){ RPM_ = RPM; }
+    void set_spin_direction(enum SpinDirection direction){ spin_direction_ = direction;};
 };
 
 #endif
