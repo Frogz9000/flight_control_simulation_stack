@@ -23,7 +23,7 @@ public:
     void set_RPM(double RPM){ RPM_ = RPM; }
     void set_spin_direction(enum SpinDirection direction){ spin_direction_ = direction;}
 
-    Vec3 get_force(){
+    Vec3 get_current_force(){
         Vec3 force = {0,0,0};
         //todo
         return force;
