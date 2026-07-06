@@ -18,7 +18,7 @@ class RigidBody
         char log_buffer[256];
 
     public:
-        RigidBody(Vec3 position = {0,0,0},  Quaternion attitude = {0,0,0,0}, Vec3 linear_velocity = {0,0,0}, Vec3 angular_velocity = {0,0,0}): 
+        RigidBody(Vec3 position = {0,0,0},  Quaternion attitude = {}, Vec3 linear_velocity = {0,0,0}, Vec3 angular_velocity = {0,0,0}): 
         position_ (position), attitude_ (attitude), linear_velocity_ (linear_velocity), angular_velocity_ (angular_velocity) {};
         
         void set_position(Vec3 position){ position_ = position; }

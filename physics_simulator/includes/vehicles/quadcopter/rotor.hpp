@@ -12,7 +12,7 @@ private:
     enum SpinDirection spin_direction_;
 
 public:
-    Rotor(Vec3 offset = {0,0,0}, double RPM = 0.0, enum SpinDirection direction = CW): 
+    Rotor(Vec3 offset = {}, double RPM = 0.0, enum SpinDirection direction = CW): 
     offset_(offset), RPM_(RPM), spin_direction_(direction){}
 
     const Vec3& offset() const {return offset_;}
@@ -24,7 +24,7 @@ public:
     void set_spin_direction(enum SpinDirection direction){ spin_direction_ = direction;}
 
     Vec3 get_current_force(){
-        Vec3 force = {0,0,0};
+        Vec3 force = {};
         //todo
         return force;
     }

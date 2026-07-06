@@ -1,14 +1,13 @@
 #ifndef QUADCOPTER_H
 #define QUADCOPTER_H
 #include "physics/rigid_body.hpp"
-#include "vehicles/vehicle.hpp"
 #include "rotor.hpp"
 #include <cstddef>
 #include <array>
 
 typedef std::array<Rotor, 4> Rotors;
 
-class Quadcopter : Vehicle {
+class Quadcopter {
 private:
     RigidBody rigid_body_;
     Rotors rotors_;

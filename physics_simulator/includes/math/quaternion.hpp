@@ -8,7 +8,12 @@ public:
     double i; 
     double j; 
     double k;
-    Quaternion(double w, double i, double j, double k): w (w), i (i), j (j), k (k) {}
+    Quaternion(double w = 1.0, double i = 0.0, double j = 0.0, double k = 0.0): w (w), i (i), j (j), k (k) {
+        if (w == 0.0 && i == 0.0 & j == 0.0 && k == 0.0){
+            w = 1.0;
+        }
+        normalize();
+    }
 
     Quaternion& operator*=(const double scalar){
         w *= scalar;
@@ -37,7 +42,7 @@ public:
         return ret_val;
     }
 
-    Quaternion conjugate() const {
+    Quaternion inverse() const {
         Quaternion inv = *this;
         inv.i = -(inv.i);
         inv.j = -(inv.j);
@@ -52,17 +57,8 @@ public:
         j /= norm_factor;
         k /= norm_factor;
     }
-};
-    inline Quaternion operator*(const Quaternion& quaternion, const double scalar) {
-        Quaternion ret_val = quaternion;
-        ret_val*=scalar;
-        return ret_val;
-    }
 
-    inline Quaternion operator*(const double scalar, const Quaternion& quaternion) {
-        Quaternion ret_val = quaternion;
-        ret_val*=scalar;
-        return ret_val;
-    }
+};
+
 
 #endif
