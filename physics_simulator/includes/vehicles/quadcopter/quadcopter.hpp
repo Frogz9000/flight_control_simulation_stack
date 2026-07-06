@@ -1,13 +1,14 @@
 #ifndef QUADCOPTER_H
 #define QUADCOPTER_H
 #include "physics/rigid_body.hpp"
+#include "vehicles/vehicle.hpp"
 #include "rotor.hpp"
 #include <cstddef>
 #include <array>
 
 typedef std::array<Rotor, 4> Rotors;
 
-class Quadcopter{
+class Quadcopter : Vehicle {
 private:
     RigidBody rigid_body_;
     Rotors rotors_;
@@ -30,7 +31,7 @@ public:
     }
 
     //just get force, later get Torque and collect in Wrench type
-    Vec3 get_rotor_force_in_global_frame(){
+    Vec3 get_force_from_current_state(){
         Vec3 total_force = {0,0,0};
         for (auto rotor : rotors_){
             total_force += rotor.get_force();
