@@ -11,7 +11,6 @@
 #define required_argument 1 
 #define optional_argument 2
 
-
 int main(int argc, char *argv[]){
     const struct option longopts[] = {
         {"sim_speed_hz", required_argument, 0, 's'},
@@ -52,7 +51,6 @@ int main(int argc, char *argv[]){
             break;
 
         case 'h':
-            std::cout << "(s)im_(speed)_hz simulation tick speed in hz" << std::endl;
             std::cout << "(s)im_(speed)_hz simulation tick speed in hz" << std::endl;
             std::cout << "((t)ime)_to_run number of seconds to simulate" << std::endl;
             std::cout << "(v)erbose output log" << std::endl;
