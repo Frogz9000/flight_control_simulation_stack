@@ -12,14 +12,14 @@ class RigidBody
         Quaternion attitude_;
         Vec3 linear_velocity_;
         Vec3 angular_velocity_;
-        //mass
+        double mass_;
         //inertia tensor (moment of interia)
 
         char log_buffer[256];
 
     public:
-        RigidBody(Vec3 position = {},  Quaternion attitude = {}, Vec3 linear_velocity = {}, Vec3 angular_velocity = {}): 
-        position_ (position), attitude_ (attitude), linear_velocity_ (linear_velocity), angular_velocity_ (angular_velocity) {};
+        RigidBody(Vec3 position = {},  Quaternion attitude = {}, Vec3 linear_velocity = {}, Vec3 angular_velocity = {}, double mass = 0.0): 
+        position_ (position), attitude_ (attitude), linear_velocity_ (linear_velocity), angular_velocity_ (angular_velocity), mass_(mass) {};
         
         void set_position(Vec3 position){ position_ = position; }
         void set_attitude(Quaternion attitude){ attitude_ = attitude; }
@@ -30,11 +30,13 @@ class RigidBody
         const Quaternion& attitude() const {return attitude_;}
         const Vec3& linear_velocity() const { return linear_velocity_; }
         const Vec3& angular_velocity() const { return angular_velocity_; }
+        const double& mass() const {return mass_;}
 
         //mutable accessors
         Vec3& position() {return position_;}
         Quaternion& attitude() {return attitude_;}
         Vec3& linear_velocity() { return linear_velocity_; }
         Vec3& angular_velocity() { return angular_velocity_; }
+        double& mass() {return mass_;}
     };
 #endif
