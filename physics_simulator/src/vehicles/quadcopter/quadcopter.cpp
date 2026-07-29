@@ -7,9 +7,6 @@ Vec3 Quadcopter::get_weight(){
 
 Vec3 Quadcopter::get_force_from_current_state(){
     Vec3 total_force = get_weight();
-    for (auto rotor : rotors_){
-        total_force += rotor.get_current_force();
-    }
     //todo use transform attitude to rotate force to global frame
     
     return total_force;

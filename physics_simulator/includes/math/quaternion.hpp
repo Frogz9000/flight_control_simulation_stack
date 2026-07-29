@@ -2,6 +2,9 @@
 #define QUATERNION_H
 #include <cmath>
 #include <math.h>
+/**
+    Consider making fields private and only exposing thorugh const getters, this would allow guarantee of normalized quaternions for operations
+**/
 class Quaternion{
 public:
     double w; 

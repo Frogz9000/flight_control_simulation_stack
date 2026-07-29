@@ -6,7 +6,7 @@
 #include "physics/physics_engine.hpp"
 #include "physics/rigid_body.hpp"
 #include "logger.hpp"
-
+#include "unit_tests.hpp"
 #define no_argument 0
 #define required_argument 1 
 #define optional_argument 2
@@ -19,6 +19,7 @@ int main(int argc, char *argv[]){
         {"time",         required_argument, 0, 't'},
         {"help",         no_argument      , 0, 'h'},
         {"verbose",      no_argument      , 0, 'v'},
+        {"test_bench",   no_argument      , 0, 'b'},
         {0,0,0,0},
     };
     int index;
@@ -30,7 +31,7 @@ int main(int argc, char *argv[]){
     int simulation_hz = 1000;
     int simulation_duration_seconds = 60;
     bool verbose = false;
-
+    bool test_bench = false;
     while(iarg != -1){
         iarg = getopt_long(argc, argv, "s:t:hv", longopts, &index);
 
@@ -49,6 +50,8 @@ int main(int argc, char *argv[]){
         case 'v':
             verbose = true;
             break;
+        case 'b':
+            test_bench = true;
 
         case 'h':
             std::cout << "(s)im_(speed)_hz simulation tick speed in hz" << std::endl;
@@ -58,6 +61,10 @@ int main(int argc, char *argv[]){
             return 0;
         }
     }
+    
+    if (test_bench){
+        //return run_all_tests();
+    }
 
     PhysicsEngine engine = PhysicsEngine(simulation_hz);//1ms ticks
     RigidBody test_object = RigidBody();
@@ -66,8 +73,7 @@ int main(int argc, char *argv[]){
         log.print_time_position_velocity(engine.total_time_s(),test_object.position(), test_object.linear_velocity());
         engine.step_time();
         Vec3 total_force = engine.get_gravitational_acceleration(test_object);//this is in m/s
-        total_force += {10,10.8,10};//arbitrary thrust vector (cancel out gravity by 1 m/s^2)
-        engine.apply_acceleration_to_velocity_linear(total_force, test_object);
-        engine.apply_velocity_to_position(test_object);
+        total_force += {0,10.8,0};//arbitrary thrust vector (cancel out gravity by 1 m/s^2)
+        engine.semi_euler_integrate(total_force, test_object);
     }
 }

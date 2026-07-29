@@ -11,8 +11,7 @@ bool test_constant_acceleration(){
     Vec3 total_force = {10,0,0};
     for (int i = 0; i<=(simulation_hz * simulation_length); i++){
         engine.step_time();
-        engine.apply_acceleration_to_velocity_linear(total_force, test_object);
-        engine.apply_velocity_to_position(test_object);
+        engine.semi_euler_integrate(total_force, test_object);
     }
     double predicted_final_position = 0.5 * total_force.x * simulation_length * simulation_length;//s = ut + 1/2*a*t^2
     double predicted_final_velocity = total_force.x * simulation_length;//v = at

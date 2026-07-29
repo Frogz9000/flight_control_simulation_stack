@@ -8,4 +8,5 @@ add_executable(physics_simulator ${SOURCES})
 
 target_include_directories(physics_simulator PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/includes
+    ${CMAKE_CURRENT_SOURCE_DIR}/unit_tests
 )
