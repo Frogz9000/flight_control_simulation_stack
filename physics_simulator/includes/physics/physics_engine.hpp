@@ -30,7 +30,7 @@ class PhysicsEngine{
         
         // for now just make -9.8m/s to y, move to environment class later
         // then have this take in arg of rigid body and environment to get gravity force
-        Vec3 get_gravitational_acceleration(RigidBody &object){ return Vec3(0.0, -9.8, 0.0); }
+        Vec3 get_gravitational_acceleration(RigidBody &object){ return Vec3(0.0, 0, -9.8); }
 
 
         void semi_euler_integrate(Vec3 acceleration,  RigidBody &object){
