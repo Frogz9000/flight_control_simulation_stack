@@ -3,13 +3,14 @@
 
 #include "math/vec3.hpp"
 #include "math/quaternion.hpp"
+#include "frame.hpp"
 #include <string>
 
 class RigidBody
 {
     private:
-        Vec3 _position;
-        Quaternion _attitude;
+        Frame _intertial_frame;//world frame NED (North East Down)
+        Frame _body_frame;     // vehicle frame
         Vec3 _linear_velocity;
         Vec3 _angular_velocity;
         double _mass;
