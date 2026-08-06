@@ -14,7 +14,7 @@ private:
     enum SpinDirection _spin_direction;
 
     //to add later:
-    ////double area_;
+    double _wing_area = 1.0;
 
 public:
     Propeller(Vec3 offset = {}, double RPM = 0.0, enum SpinDirection direction = SpinDirection::CW, double lift_coeff = 1.0, double drag_coeff = 1.0): 
@@ -23,7 +23,8 @@ public:
     const Vec3& offset() const { return _offset; }
     const double RPM() const { return _RPM; }
     const SpinDirection spin_direction() const { return _spin_direction; }
-
+    const double wing_area() const { return _wing_area; }
+    
     void set_positional_offset(Vec3& offset){ _offset = offset; }
     void set_RPM(double RPM){ _RPM = RPM; }
     void set_spin_direction(enum SpinDirection direction){ _spin_direction = direction; }
