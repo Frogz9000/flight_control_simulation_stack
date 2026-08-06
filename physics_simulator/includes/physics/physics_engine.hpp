@@ -10,6 +10,7 @@ class PhysicsEngine{
         int update_frequency_hz = 0;
         double time_step = 1.0/update_frequency_hz;
         double _total_time_s = 0.0;
+        //world frame NED (North East Down)
 
         void update_velocity(RigidBody& rigid_body, Vec3 acceleration, double dt){
             rigid_body.linear_velocity().x += acceleration.x * dt;
@@ -28,9 +29,9 @@ class PhysicsEngine{
         
         double total_time_s() const {return _total_time_s;}
         
-        // for now just make -9.8m/s to y, move to environment class later
+        // for now just make -9.8m/s downward, move to environment class later
         // then have this take in arg of rigid body and environment to get gravity force
-        Vec3 get_gravitational_acceleration(RigidBody &object){ return Vec3(0.0, 0, -9.8); }
+        Vec3 get_gravitational_acceleration(RigidBody &object){ return Vec3(0.0, 0.0, -9.8); }
 
 
         void semi_euler_integrate(Vec3 acceleration,  RigidBody &object){

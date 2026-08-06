@@ -21,10 +21,10 @@ public:
     _offset(offset), _RPM(RPM), _spin_direction(direction), _lift_coeff(lift_coeff), _drag_coeff(drag_coeff){}
 
     const Vec3& offset() const {return _offset;}
-    const double& RPM() const {return _RPM;}
-    const SpinDirection& spin_direction() const {return _spin_direction;}
+    const double RPM() const {return _RPM;}
+    const SpinDirection spin_direction() const {return _spin_direction;}
 
-    void set_positional_offset(Vec3 offset){ _offset = offset; }
+    void set_positional_offset(Vec3& offset){ _offset = offset; }
     void set_RPM(double RPM){ _RPM = RPM; }
     void set_spin_direction(enum SpinDirection direction){ _spin_direction = direction;}
 };

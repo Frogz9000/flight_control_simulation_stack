@@ -50,8 +50,10 @@ int main(int argc, char *argv[]){
         case 'v':
             verbose = true;
             break;
+
         case 'b':
             test_bench = true;
+            break;
 
         case 'h':
             std::cout << "(s)im_(speed)_hz simulation tick speed in hz" << std::endl;

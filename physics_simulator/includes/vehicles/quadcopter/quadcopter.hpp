@@ -28,8 +28,6 @@ public:
     void set_rotor_direction(size_t prop_id, enum SpinDirection direction){
         _props[prop_id].set_spin_direction(direction);
     }
-    //get downward force from weight
-    Vec3 get_weight();
     //just get force, later get Torque and collect in Wrench type
     Vec3 get_force_from_current_state();
 };
