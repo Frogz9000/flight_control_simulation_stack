@@ -27,7 +27,7 @@ class PhysicsEngine{
     public:
         PhysicsEngine(int update_frequency_hz) : update_frequency_hz (update_frequency_hz){}
         
-        double total_time_s() const {return _total_time_s;}
+        double total_time_s() const { return _total_time_s; }
         
         // for now just make -9.8m/s downward, move to environment class later
         // then have this take in arg of rigid body and environment to get gravity force

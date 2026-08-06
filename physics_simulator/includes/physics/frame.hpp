@@ -15,12 +15,12 @@ public:
     void set_attitude(Quaternion attitude){ _attitude = attitude; }
     
     //immutable accessors
-    const Vec3& position() const {return _position;}
-    const Quaternion& attitude() const {return _attitude;}
+    const Vec3& position() const { return _position; }
+    const Quaternion& attitude() const { return _attitude; }
    
     //mutable accessors
-    Vec3& position() {return _position;}
-    Quaternion& attitude() {return _attitude;}
+    Vec3& position() { return _position; }
+    Quaternion& attitude() { return _attitude; }
 };
 
 
