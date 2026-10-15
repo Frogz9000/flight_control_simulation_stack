@@ -6,11 +6,8 @@ Vec3 Quadcopter::get_force_from_current_state(){
     //todo use transform attitude to rotate force to global frame
     for (Propeller& p : propellers()){
         //body frame
-        double thrust;
-        double drag;
-        double lift;
-        total_force += {thrust-drag,0.0,lift};
-        
+        double thrust = p.get_thrust();
+        total_force += {thrust,0.0,0.0}; 
     }
     return total_force;
 }

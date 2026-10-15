@@ -4,9 +4,10 @@
 #include <getopt.h>
 
 #include "physics/physics_engine.hpp"
-#include "physics/rigid_body.hpp"
+#include "vehicles/quadcopter/quadcopter.hpp"
 #include "logger.hpp"
 #include "unit_tests.hpp"
+
 #define no_argument 0
 #define required_argument 1 
 #define optional_argument 2
@@ -69,13 +70,14 @@ int main(int argc, char *argv[]){
     }
 
     PhysicsEngine engine = PhysicsEngine(simulation_hz);
-    RigidBody test_object = RigidBody();
+    Quadcopter test_object = Quadcopter(RigidBody(), Propellers());
     Logger log = Logger(verbose);
     for (int i = 0; i<=(simulation_hz * simulation_duration_seconds); i++){
-        log.print_time_position_velocity(engine.total_time_s(),test_object.position(), test_object.linear_velocity());
+        log.print_time_position_velocity(engine.total_time_s(),test_object.rigid_body().position(), test_object.rigid_body().linear_velocity());
         engine.step_time();
-        Vec3 total_force = engine.get_gravitational_acceleration(test_object);//this is in m/s
-        total_force += {0,0,10.8};//arbitrary thrust vector (cancel out gravity by 1 m/s^2)
-        engine.semi_euler_integrate(total_force, test_object);
+        Vec3 total_force = engine.get_gravitational_acceleration(test_object.rigid_body());//this is in m/s
+        total_force += test_object.get_force_from_current_state();
+        engine.semi_euler_integrate(total_force, test_object.rigid_body());
     }
+    return 0;
 }
